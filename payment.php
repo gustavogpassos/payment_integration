@@ -15,7 +15,7 @@ require "boot.php";
 
 $result = Braintree_Transaction::sale([
     'amount' => $_POST['amount'],
-    'paymentMethodNonce' => $_POST['payment_method_nonce'],
+    'paymentMethodNonce' => $_POST['nonce'],
     'options' => [
         'submitForSettlement' => True
     ]
