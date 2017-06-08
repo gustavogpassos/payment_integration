@@ -7,4 +7,4 @@
  */
 require "boot.php";
 
-echo json_encode(Braintree_ClientToken::generate());
+echo ($clientToken = Braintree_ClientToken::generate());
