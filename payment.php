@@ -13,13 +13,24 @@ require "boot.php";
 
 }*/
 
-$result = Braintree_Transaction::sale([
-    'amount' => $_POST['amount'],
-    'paymentMethodNonce' => $_POST['nonce'],
-    'options' => [
-        'submitForSettlement' => True
-    ]
-]);
+//if (!isset($_POST['planId'])) {
+
+    $result = Braintree_Transaction::sale([
+        'amount' => $_POST['amount'],
+        'paymentMethodNonce' => $_POST['nonce'],
+        'options' => [
+            'submitForSettlement' => True
+        ]
+    ]);
+
+//}else{
+    /*$result = Braintree_Subscription::create([
+        'paymentMethodNonce' => $_POST['nonce'],
+        'planId' => $_POST['planId'],
+        'amount' => $_POST['amount'],
+        'merchantAccountId' => 'amigopet'
+    ]);*/
+//}
 
 echo $result;die();
 
